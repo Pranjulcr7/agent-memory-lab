@@ -10,9 +10,9 @@ A small B2B software team with a deployed assistant, persistent per-user memory,
 
 ## First real integration
 
-After the SQLite lesson, pick one supported Mem0 OSS version and one storage backend. Verify its current documented behavior. Build an adapter and run a small set of lifecycle tests. Do not assume closed historical issues are still present. A passing current implementation is an important positive control.
+The first local adapter now runs against `mem0ai==2.1.0` and `qdrant-client==1.19.1`. It uses actual storage and memory APIs with deterministic embedding fixtures and inference disabled. The retrieval contract passes; deleted text remains in the inspected history, which fails a separately selected history-erasure requirement. This is observed behavior of a specific configuration, not a universal finding about every Mem0 application.
 
-Begin with a finite set of synthetic fixtures and a local runner. Record setup outcomes, deletion completion, inspected layers, and reproducible evidence. Explicitly label uninspected conversation stores and caches.
+The runner records baseline outcomes, deletion acknowledgment, inspected layers, preservation controls, versions, and evidence. It distinguishes PASS, FAIL, and INCONCLUSIVE. Application conversation stores and caches remain outside the tested scope. The next integration should exercise an actual application's deletion entry point and prompt assembly, with the team's intended contract agreed first.
 
 ## Learning and build sequence
 
